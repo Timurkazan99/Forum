@@ -78,27 +78,27 @@ module.exports = {
       //     name: '[name].[ext]'
       //   }
       // },
-      // {
-      //   // scss
-      //   test: /\.scss$/,
-      //   use: [
-      //     'style-loader',
-      //     {
-      //       loader: MiniCssExtractPlugin.loader,
-      //       options: {
-      //         esModule: false,
-      //       },
-      //     },
-      //     {
-      //       loader: 'css-loader',
-      //       options: { sourceMap: true },
-      //     },
-      //     {
-      //       loader: 'sass-loader',
-      //       options: { sourceMap: true },
-      //     },
-      //   ],
-      // },
+      {
+        // scss
+        test: /\.scss$/,
+        use: [
+          'style-loader',
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              esModule: false,
+            },
+          },
+          {
+            loader: 'css-loader',
+            options: { sourceMap: true },
+          },
+          {
+            loader: 'sass-loader',
+            options: { sourceMap: true },
+          },
+        ],
+      },
       {
         // css
         test: /\.(css|less)$/,

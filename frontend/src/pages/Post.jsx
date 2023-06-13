@@ -6,6 +6,7 @@ import {fetchPostsCreator} from "../store/actions";
 import useQueryParams from "../hooks/useQueryParams";
 import PostsGroup from "../components/PostsGroup.jsx";
 import PostsHeader from "../components/PostsHeader.jsx";
+import '../styles/posts.scss';
 
 const Post = () => {
   const dispatch = useDispatch();
