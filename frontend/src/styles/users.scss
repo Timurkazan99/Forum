@@ -1,0 +1,31 @@
+.users {
+  &-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+
+    .loader {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-grow: 3;
+
+      &:nth-child(1) {
+        flex-grow: 1;
+      }
+    }
+  }
+
+  &-appear {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  &-appear-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 700ms, transform 700ms;
+  }
+}
