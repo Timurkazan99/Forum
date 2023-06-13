@@ -1,49 +1,42 @@
 import React from 'react';
 import {Pagination} from "react-bootstrap";
-import {connect, useDispatch, useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import pagesCreator from "../utils/pagesCreator";
-import {fetchPostsCreator, setFindPostCreator} from "../store/actions";
+import {fetchPostsCreator} from "../store/actions";
 import useQueryParams from "../hooks/useQueryParams";
-import WithLoader from "../hocs/WithLoader.jsx";
+import WithMobile from "../hocs/WithMobile.jsx";
 
-const mapStateToProps = ({posts}) => ({ status: posts.status });
-
-const PageList = () => {
+const PageList = ({isMobile}) => {
   const dispatch = useDispatch();
   const {getParams, update} = useQueryParams();
-  const {page, maxPage, status} = useSelector((state) => state.posts);
-
-  if(status !== 'fulfilled') {
-    return null;
-  }
+  const { page } = getParams();
+  const { maxPage } = useSelector((state) => state.posts);
 
   const pages = pagesCreator(page, maxPage);
   const onClickCreator = (number) => (e) => {
     e.preventDefault();
+    window.scrollTo(0, 0);
     if (number !== page) {
-      const { search } = getParams();
-      if (!search) {
-        dispatch(fetchPostsCreator(number));
-      } else {
-        dispatch(setFindPostCreator(number, search));
-      }
-      update(number, search);
+      update(number);
+      dispatch(fetchPostsCreator(number));
     }
   }
 
   return (
-    <Pagination>
-      {pages.map((number) => (
-        <Pagination.Item
-          key={number}
-          active={number === page}
-          onClick={onClickCreator(number)}
-        >
-          {number}
-        </Pagination.Item>
-      ))}
-    </Pagination>
+    <div>
+      <Pagination size={isMobile ? 'sm' : 'md'}>
+        {pages.map((number) => (
+          <Pagination.Item
+            key={number}
+            active={number === page}
+            onClick={onClickCreator(number)}
+          >
+            {number}
+          </Pagination.Item>
+        ))}
+      </Pagination>
+    </div>
   );
 };
 
-export default connect(mapStateToProps, null)(WithLoader(PageList));
+export default WithMobile(PageList);

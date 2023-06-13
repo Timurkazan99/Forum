@@ -1,10 +1,9 @@
 import {
-  SET_MAX_PAGE, SET_PAGE, SET_POST, SET_POST_STATUS,
+  SET_MAX_PAGE, SET_POST, SET_POST_STATUS,
 } from '../../utils/const';
 
 const defaultState = {
   items: [],
-  page: 1,
   maxPage: 1,
   status: 'pending',
 };
@@ -13,8 +12,6 @@ export default function postReducer(state = defaultState, action) {
   switch (action.type) {
     case SET_POST:
       return { ...state, items: action.payload };
-    case SET_PAGE:
-      return { ...state, page: action.payload };
     case SET_MAX_PAGE:
       return { ...state, maxPage: action.payload };
     case SET_POST_STATUS:

@@ -1,10 +1,9 @@
 import { $host } from './index';
-import { mapUrl } from '../utils/const';
 import getMaxPage from '../utils/getMaxPage';
+import getUrl from '../utils/getUrl';
 
-export const fetchPostsApi = async ({ type, page, search }) => {
-  const getUrl = mapUrl[type];
-  const { data, headers } = await $host.get(getUrl(page, search));
+export const fetchPostsApi = async () => {
+  const { data, headers } = await $host.get(getUrl());
   const maxPage = getMaxPage(Number(headers.get('x-total-count')));
   return { data, maxPage };
 };

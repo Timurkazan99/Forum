@@ -1,11 +1,16 @@
 import React from 'react';
+import {Card} from "react-bootstrap";
 
 const CommentItem = (props) => {
   return (
-    <div>
-      <h6>{props.email}</h6>
-      <p>{props.body}</p>
-    </div>
+      <Card bg='secondary' className='mb-2'>
+        <Card.Header>
+          <h6>{props.email}</h6>
+        </Card.Header>
+        <Card.Body>
+          {props.body}
+        </Card.Body>
+      </Card>
   );
 };
 

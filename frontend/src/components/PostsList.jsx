@@ -1,9 +1,5 @@
 import React from 'react';
-import {connect} from "react-redux";
 import PostItem from "./PostItem.jsx";
-import WithLoader from "../hocs/WithLoader.jsx";
-
-const mapStateToProps = ({posts}) => ({ status: posts.status, items: posts.items });
 
 const PostsList = ({ items }) => {
   return (
@@ -20,4 +16,4 @@ const PostsList = ({ items }) => {
   );
 };
 
-export default connect(mapStateToProps, null)(WithLoader(PostsList));
+export default PostsList;

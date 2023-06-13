@@ -1,20 +1,14 @@
 import React from 'react';
 import {Spinner} from "react-bootstrap";
 
-const mapLoader = {
-  spinner: Spinner,
-  'null': () => null
-}
-
 const WithLoader = (Component) => (props) => {
 
   if (props.status !== 'fulfilled') {
-    const Loader =  mapLoader[props.loader]
-    return <Loader />
+    return props.show && <div className='loader'><Spinner /></div>
   }
 
   if ( props.placeholder && (!props.items || props.items.length <= 0)) {
-    return <p>{props.placeholder}</p>
+    return props.show && <p>{props.placeholder}</p>
   }
 
   return (

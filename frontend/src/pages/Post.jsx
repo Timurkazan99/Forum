@@ -1,30 +1,29 @@
 import React, {useEffect} from 'react';
-import PostsList from "../components/PostsList.jsx";
 import {Container} from "react-bootstrap";
-import PageList from "../components/PageList.jsx";
 import SearchInput from "../components/SearchInput.jsx";
 import {useDispatch} from "react-redux";
-import {fetchPostsCreator, setFindPostCreator} from "../store/actions";
+import {fetchPostsCreator} from "../store/actions";
 import useQueryParams from "../hooks/useQueryParams";
+import PostsGroup from "../components/PostsGroup.jsx";
+import PostsHeader from "../components/PostsHeader.jsx";
 
 const Post = () => {
   const dispatch = useDispatch();
-  const {getParams} = useQueryParams();
+  const {getParams, update} = useQueryParams();
 
   useEffect(() => {
-    const {page, search} = getParams();
-    if (!search) {
-      dispatch(fetchPostsCreator(page));
-    } else {
-      dispatch(setFindPostCreator(page, search));
+    const {page} = getParams();
+    if (!page) {
+      update(1);
     }
+    dispatch(fetchPostsCreator(page));
   }, []);
 
   return (
-    <Container>
+    <Container className='posts-container' >
       <SearchInput />
-      <PostsList loader='spinner' placeholder='Нету постов'/>
-      <PageList loader='null'/>
+      <PostsHeader />
+      <PostsGroup show />
     </Container>
   );
 };
