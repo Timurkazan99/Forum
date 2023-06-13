@@ -51,5 +51,8 @@ html .header .line {
   height: 1px;
   width: 100%;
 }
+html .error {
+  height: 200px;
+}
 
 /*# sourceMappingURL=common.css.map */

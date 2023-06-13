@@ -1,4 +1,4 @@
-import { ADD_COMMENTS, SET_COMMENTS_ACTIVE, SET_COMMENTS_STATUS } from '../../utils/const';
+import {ADD_COMMENTS, SET_COMMENTS_ACTIVE, SET_COMMENTS_STATUS, SET_USER_ERROR} from '../../utils/const';
 
 const defaultState = {
   status: 'pending',
@@ -13,6 +13,8 @@ export default function commentReducer(state = defaultState, action) {
       return { ...state, status: action.payload };
     case SET_COMMENTS_ACTIVE:
       return { ...state, active: action.payload };
+    case SET_USER_ERROR:
+      return { ...state, error: action.payload };
   }
   return state;
 }

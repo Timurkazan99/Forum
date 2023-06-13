@@ -1,5 +1,5 @@
 import {
-  SET_MAX_PAGE, SET_POST, SET_POST_STATUS,
+  SET_MAX_PAGE, SET_POST, SET_POST_ERROR, SET_POST_STATUS,
 } from '../../utils/const';
 
 const defaultState = {
@@ -16,6 +16,8 @@ export default function postReducer(state = defaultState, action) {
       return { ...state, maxPage: action.payload };
     case SET_POST_STATUS:
       return { ...state, status: action.payload };
+    case SET_POST_ERROR:
+      return { ...state, error: action.payload };
   }
   return state;
 }

@@ -4,8 +4,9 @@ import WithLoader from "../hocs/WithLoader.jsx";
 import PostsList from "./PostsList.jsx";
 import PageList from "./PageList.jsx";
 import {CSSTransition} from "react-transition-group";
+import WithErrors from "../hocs/WithErrors.jsx";
 
-const mapStateToProps = ({posts}) => ({ status: posts.status, items: posts.items });
+const mapStateToProps = ({posts}) => ({ status: posts.status, items: posts.items, error: posts.error });
 
 const PostsGroup = ({status, items}) => {
   return (
@@ -27,4 +28,4 @@ const PostsGroup = ({status, items}) => {
   );
 };
 
-export default connect(mapStateToProps, null)(WithLoader(PostsGroup));
+export default connect(mapStateToProps, null)(WithLoader(WithErrors(PostsGroup)));

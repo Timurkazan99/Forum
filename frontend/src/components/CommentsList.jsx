@@ -3,10 +3,12 @@ import {connect} from "react-redux";
 import CommentItem from "./CommentItem.jsx";
 import WithLoader from "../hocs/WithLoader.jsx";
 import {CSSTransition} from "react-transition-group";
+import WithErrors from "../hocs/WithErrors.jsx";
 
-const mapStateToProps = ({comments}, {id}) => ({
+const mapStateToProps = ({comments, error}, {id}) => ({
   status: (id !== comments.active) ? 'fulfilled' : comments.status,
-  items: comments[id]
+  items: comments[id],
+  error
 });
 
 const CommentsList = ({ show, items }) => {
@@ -33,4 +35,4 @@ CommentsList.defaultProps = {
   items: []
 }
 
-export default connect(mapStateToProps, null)(WithLoader(CommentsList));
+export default connect(mapStateToProps, null)(WithLoader(WithErrors(CommentsList)));

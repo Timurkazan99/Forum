@@ -3,7 +3,7 @@ import {Spinner} from "react-bootstrap";
 
 const WithLoader = (Component) => (props) => {
 
-  if (props.status !== 'fulfilled') {
+  if (props.status === 'pending') {
     return props.show && <div className='loader'><Spinner /></div>
   }
 

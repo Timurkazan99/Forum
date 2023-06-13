@@ -5,8 +5,9 @@ import WithLoader from "../hocs/WithLoader.jsx";
 import {useNavigate} from 'react-router-dom';
 import {CSSTransition} from "react-transition-group";
 import UserFields from "./UserFields.jsx";
+import WithErrors from "../hocs/WithErrors.jsx";
 
-const mapStateToProps = ({user: {status, ...item}}) => ({ status, item });
+const mapStateToProps = ({user: {status, error, ...item}}) => ({ status, item, error });
 
 const UserCard = ({ status, item }) => {
   const navigate = useNavigate();
@@ -52,4 +53,4 @@ const UserCard = ({ status, item }) => {
   );
 };
 
-export default connect(mapStateToProps, null)(WithLoader(UserCard));
+export default connect(mapStateToProps, null)(WithLoader(WithErrors(UserCard)));
