@@ -4,7 +4,7 @@
 ### Описание:
 Упрощенный форум
 
-[Пример приложения](http://ovz1.j66826829.wmekm.vps.myjino.ru/chat/)
+[Пример приложения](https://forum-frontend-hxcih0zkg-timurkazan99.vercel.app/)
 
 ### Функционал:
 - Посты

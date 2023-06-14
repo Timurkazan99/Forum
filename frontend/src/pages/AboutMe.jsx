@@ -42,7 +42,7 @@ const AboutMe = () => {
                 <li>Форум
                   <ul>
                     <li><a href='https://github.com/Timurkazan99/Forum'>Репозиторий</a></li>
-                    <li><a href='http://ovz1.j66826829.wmekm.vps.myjino.ru/forum/'>Пример</a></li>
+                    <li><a href='https://forum-frontend-hxcih0zkg-timurkazan99.vercel.app/'>Пример</a></li>
                   </ul>
                 </li>
               </ul>
