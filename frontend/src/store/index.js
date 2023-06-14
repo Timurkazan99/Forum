@@ -9,11 +9,13 @@ import rootWatcher from './saga';
 
 const sagaMiddleware = createSagaMiddleware();
 
+/* eslint-disable no-underscore-dangle */
 const composeEnhancers = typeof window === 'object' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
   ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
     // Specify extension’s options like name, actionsDenylist, actionsCreators, serialize...
   })
   : compose;
+/* eslint-enable no-underscore-dangle */
 
 const rootReducer = combineReducers({
   posts: postReducer,

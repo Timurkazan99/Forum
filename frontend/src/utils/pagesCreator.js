@@ -1,3 +1,4 @@
+/* eslint-disable functional/no-let, functional/no-loop-statement */
 const pagesCreator = (page, maxPage) => {
   const pages = [];
 
@@ -18,5 +19,6 @@ const pagesCreator = (page, maxPage) => {
   }
   return pages;
 };
+/* eslint-enable functional/no-let, functional/no-loop-statement */
 
 export default pagesCreator;

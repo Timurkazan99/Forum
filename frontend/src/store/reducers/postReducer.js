@@ -8,6 +8,7 @@ const defaultState = {
   status: 'pending',
 };
 
+// eslint-disable-next-line default-param-last
 export default function postReducer(state = defaultState, action) {
   switch (action.type) {
     case SET_POST:
@@ -18,6 +19,7 @@ export default function postReducer(state = defaultState, action) {
       return { ...state, status: action.payload };
     case SET_POST_ERROR:
       return { ...state, error: action.payload };
+    default:
+      return state;
   }
-  return state;
 }

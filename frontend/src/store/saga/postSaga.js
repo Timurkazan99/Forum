@@ -1,5 +1,7 @@
 import { put, takeEvery, call } from 'redux-saga/effects';
-import {setMaxPageCreator, setPostCreator, setPostErrorCreator, setPostStatusCreator} from '../actions';
+import {
+  setMaxPageCreator, setPostCreator, setPostErrorCreator, setPostStatusCreator,
+} from '../actions';
 import { fetchPostsApi } from '../../https/postApi';
 import { FETCH_POST } from '../../utils/const';
 import delay from '../../utils/delay';
@@ -16,7 +18,6 @@ function* fetchPostWorker() {
     yield put(setPostStatusCreator('rejected'));
     yield put(setPostErrorCreator(e));
   }
-
 }
 
 export default function* postWatcher() {

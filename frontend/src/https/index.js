@@ -6,4 +6,4 @@ const baseURL = `${host}${URI}`;
 
 const $host = axios.create({ baseURL });
 
-export { $host };
+export { $host }; // eslint-disable-line import/prefer-default-export

@@ -3,7 +3,7 @@ export const POST_ROUTE = `${URI}/posts`;
 export const USER_ROUTE = `${URI}/users/:id`;
 export const ABOUT_ME_ROUTE = `${URI}/about-me`;
 
-export const ITEMS_PER_PAGE = 5;
+export const ITEMS_PER_PAGE = process.env.REACT_LIMIT || 5;
 
 export const FETCH_POST = 'FETCH_POST';
 export const SET_POST = 'SET_POST';
