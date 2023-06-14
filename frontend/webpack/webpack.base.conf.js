@@ -70,14 +70,14 @@ module.exports = {
       //     name: '[name].[ext]'
       //   }
       // },
-      // {
-      //   // Images / icons
-      //   test: /\.(png|jpg|gif|svg)$/,
-      //   loader: 'file-loader',
-      //   options: {
-      //     name: '[name].[ext]'
-      //   }
-      // },
+      {
+        // Images / icons
+        test: /\.(png|jpg|jpeg|gif|svg)$/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]',
+        },
+      },
       {
         // scss
         test: /\.scss$/,
@@ -132,10 +132,10 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         // Images:
-        // {
-        //   from: `${PATHS.src}/${PATHS.assets}img`,
-        //   to: `${PATHS.assets}img`,
-        // },
+        {
+          from: `${PATHS.src}/${PATHS.assets}img`,
+          to: `${PATHS.assets}img`,
+        },
         // Fonts:
         // {
         //   from: `${PATHS.src}/${PATHS.assets}fonts`,
