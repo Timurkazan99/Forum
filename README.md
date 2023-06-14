@@ -1,6 +1,6 @@
 # Forum
 [![eslint](https://github.com/Timurkazan99/Forum/actions/workflows/eslint.yml/badge.svg)](https://github.com/Timurkazan99/Forum/actions/workflows/eslint.yml)
-[![Maintainability](https://api.codeclimate.com/v1/badges/48ef3b812faf43b233f4/maintainability)](https://codeclimate.com/github/Timurkazan99/schedule/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/c3b3f2dd329fddee47cf/maintainability)](https://codeclimate.com/github/Timurkazan99/Forum/maintainability)
 ### Описание:
 Упрощенный форум
 
